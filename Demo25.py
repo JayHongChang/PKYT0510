@@ -19,8 +19,12 @@ classifier = tree.DecisionTreeClassifier()
 classifier.fit(X, Y)
 print(classifier)
 # make a directory graph
-dot_file = "graphy/demo25.dot"
-output_file = 'graphy/demo25.png'
+dot_file = "graph/demo25.dot"
+# png, svg, pdf
+image_format = 'pdf'
+output_file = 'graph/demo25.%s'
 export_graphviz(classifier, out_file=dot_file,
-                filled=True, rounded=True, special_characters=True)
-check_call(['dot', '-Tpng', dot_file, '-o', output_file])
+                filled=True, rounded=True, special_characters=True,
+                class_names=["red_circle", "green_diamond"])
+check_call(['dot', '-T%s' % image_format, dot_file, '-o',
+            output_file % image_format])
