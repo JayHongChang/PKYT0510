@@ -1,0 +1,17 @@
+import tensorflow as tf
+
+tf.compat.v1.disable_eager_execution()
+t1 = tf.constant("Hello tensorflow")
+t2 = tf.constant(500)
+t3 = tf.constant(3.14)
+print(type(t1), t1)
+print(type(t2), t2)
+print(type(t3), t3)
+session1 = tf.compat.v1.Session()
+result1 = session1.run(t1)
+result2 = session1.run(t2)
+result3 = session1.run(t3)
+print(result1)
+print(result2)
+print(result3)
+session1.close()
